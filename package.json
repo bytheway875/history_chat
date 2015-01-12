@@ -1,0 +1,30 @@
+{
+  "name": "history_chat",
+  "version": "0.0.1",
+  "description": "When you get to the site, you'll be randomly assigned as a historical figure. In character as your historical persona, you'll chat with other users to teach and learn more about history.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vows --spec --isolate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytheway875/history_chat.org"
+  },
+  "keywords": [
+    "sockets",
+    "express",
+    "sample_app"
+  ],
+  "author": "Shannon Byrne (bytheway875)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bytheway875/history_chat.org/issues"
+  },
+  "homepage": "https://github.com/bytheway875/history_chat.org",
+  "dependencies": {
+    "ejs": "^2.0.8",
+    "express": "^4.9.8",
+    "socket.io": "^1.2.1",
+    "underscore": "^1.7.0"
+  }
+}
