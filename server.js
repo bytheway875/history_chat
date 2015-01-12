@@ -30,9 +30,12 @@ server.listen(1137, function(){
 });
 
 io.on('connection', function(socket){
-    console.log("A user connected.")
+    console.log("A user connected.");
     socket.on('disconnect', function(){
-        console.log('A user disconnected.')
+        var disconnecting_user = socket.username
+        delete usernames[socket.username];
+        io.emit('update users', usernames);
+        console.log(disconnecting_user + ' disconnected.')
     });
     socket.on('chat message', function(msg){
         console.log('message: ' + msg);
@@ -42,8 +45,16 @@ io.on('connection', function(socket){
         console.log('username: ' + username);
         socket.username = username;
         usernames[username] = username;
+        io.emit('update users', usernames);
+    });
+
+    io.on('disconnect', function(socket){
+        delete usernames[socket.username];
+        io.emit('update users', usernames);
     });
 });
+
+
 
 // BASIC NODE HELLO WORLD
 //var http = require('http');

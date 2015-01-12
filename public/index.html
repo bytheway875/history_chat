@@ -2,20 +2,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Julia's Helping Hand</title>
+    <title>History Chat</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container ">
-
-        <ul id="messages"></ul>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title">
+                    History Chat
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="messages-container scroll">
+                    <ul id="messages"></ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="you-container scroll">
+                    <div class="intro">
+                        You are:
+                    </div>
+                    <ul id="you"></ul>
+                </div>
+                <div class="users-container scroll">
+                    <div class="intro">
+                        Online Now:
+                    </div>
+                    <ul id="users"></ul>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container">
-        <form action="">
-            <input id="m" autocomplete="off" /><button>Send</button>
-        </form>
+        <div class="row">
+            <div class="col-sm-8">
+                <form action="">
+                    <input id="m" autocomplete="off" /><button>Send</button>
+                </form>
+            </div>
+        </div>
     </div>
 
 </body>
@@ -24,30 +54,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script>
-    var socket = io();
+<script src="client.js"></script>
 
-    // Returns a random historical figure from the list of figures.
-    function chooseUser(){
-        return window.names[Math.floor(Math.random() * window.names.length)]
-    }
-
-    var username = chooseUser();
-
-
-    socket.on('connect', function(){
-        socket.emit('add user', username);
-    });
-
-    $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-    });
-    socket.on('chat message', function(username, msg){
-        $('#messages').append($('<li>').text(username + ": " + msg));
-    });
-
-</script>
-
-<!--<script src="client.js"></script>-->
