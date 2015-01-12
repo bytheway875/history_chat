@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Julia's Helping Hand</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="container ">
 
-<h1> Murphy </h1>
-<form>
-    <legend>New Block</legend>
-    <input name="name" placeholder="Name">
-    <br>
-    <input name="description" placeholder="Description">
-    <br>
-    <input type="Submit">
-</form>
+        <!--<h1> Murphy </h1>-->
+        <!--<form>-->
+            <!--<legend>New Block</legend>-->
+            <!--<input name="name" placeholder="Name">-->
+            <!--<br>-->
+            <!--<input name="description" placeholder="Description">-->
+            <!--<br>-->
+            <!--<input type="Submit">-->
+        <!--</form>-->
 
-<ul class="block-list"></ul>
+        <!--<ul class="block-list"></ul>-->
+        <ul id="messages"></ul>
+
+    </div>
+    <div class="container">
+        <form action="">
+            <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+    </div>
 
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="client.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+    });
+    socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+    });
+</script>
+
+<!--<script src="client.js"></script>-->
