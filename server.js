@@ -36,8 +36,13 @@ io.on('connection', function(socket){
     });
     socket.on('chat message', function(msg){
         console.log('message: ' + msg);
-        io.emit('chat message', msg);
-    })
+        io.emit('chat message', socket.username, msg);
+    });
+    socket.on('add user', function(username){
+        console.log('username: ' + username);
+        socket.username = username;
+        usernames[username] = username;
+    });
 });
 
 // BASIC NODE HELLO WORLD
