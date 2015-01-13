@@ -8,6 +8,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var nodes = {};
 var usernames = {};
+var Wiki = require('wikijs');
 
 
 
@@ -31,8 +32,9 @@ server.listen(1137, function(){
 
 io.on('connection', function(socket){
     console.log("A user connected.");
+
     socket.on('disconnect', function(){
-        var disconnecting_user = socket.username
+        var disconnecting_user = socket.username;
         delete usernames[socket.username];
         io.emit('update users', usernames);
         console.log(disconnecting_user + ' disconnected.')
@@ -46,6 +48,22 @@ io.on('connection', function(socket){
         socket.username = username;
         usernames[username] = username;
         io.emit('update users', usernames);
+
+        Wiki.search(username, 1, function(err, result){
+            page_name = result[0];
+            console.log(page_name);
+            socket.wiki_link = "http://www.wikipedia/wiki/" + page_name.split(" ").join("_");
+            Wiki.page(page_name, function(err, result){
+                result.content(function(err, content){
+                    bio = content.substr(0, 1000);
+                    socket.bio = bio;
+                    console.log(socket.bio);
+                    console.log(socket.wiki_link);
+                    io.emit('send bio', socket.bio, socket.wiki_link);
+                });
+            });
+        });
+        
     });
 
     io.on('disconnect', function(socket){
@@ -53,8 +71,6 @@ io.on('connection', function(socket){
         io.emit('update users', usernames);
     });
 });
-
-
 
 // BASIC NODE HELLO WORLD
 //var http = require('http');

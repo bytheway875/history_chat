@@ -31,4 +31,9 @@ socket.on('chat message', function(username, msg){
     $('.scroll').scrollTop(1000000);
 });
 
+socket.on('send bio', function(bio, link){
+    $('#bio').text(bio);
+    $('#bio').append($('<li>').text(link));
+});
+
 

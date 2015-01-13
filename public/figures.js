@@ -87,7 +87,7 @@ window.names = [
     "Michelangelo",
     "Philip II of Spain",
     "Johann Wolfgang von Goethe",
-    "Ali, founder of Sufism",
+    "Ali",
     "Thomas Aquinas",
     "Pope John Paul II",
     "Rene Descartes",
