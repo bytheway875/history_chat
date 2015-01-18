@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+    <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>History Chat</title>
@@ -21,35 +23,36 @@
                 <div class="messages-container scroll">
                     <ul id="messages"></ul>
                 </div>
+                <form action="">
+                    <input id="m" autocomplete="off" /><button>Send</button>
+                </form>
             </div>
             <div class="col-sm-4">
-                <div class="you-container scroll">
-                    <div class="intro">
-                        You are:
-                    </div>
-                    <ul id="you"></ul>
-                </div>
                 <div class="users-container scroll">
                     <div class="intro">
                         Online Now:
                     </div>
                     <ul id="users"></ul>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <form action="">
-                    <input id="m" autocomplete="off" /><button>Send</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="bio">
+                <div class="you-container scroll">
+                    <div class="intro">
+                        You are:
+                    </div>
+                    <ul id="you"></ul>
+                </div>
+                <div class = "bio-container scroll">
+                    <div class="intro">
 
+                    </div>
+                    <div id="bio">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
+
 
 </body>
 <script src="figures.js"></script>

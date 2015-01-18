@@ -20,9 +20,12 @@
     margin-bottom: 0px;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Josefin Slab', serif;
 }
 body {
-    font: 13px Helvetica, Arial;
+    font: 15px Helvetica, Arial;
+
+    background-color: #499272;
 }
 /*form {*/
     /*background: #000;*/
@@ -31,7 +34,7 @@ body {
     /*margin: 3px;*/
 /*}*/
 form input {
-    border: 2px solid black;
+    border: 2px double #0f5738;
     padding: 10px;
     width: 85%;
     border-radius: 5px;
@@ -40,7 +43,7 @@ form input {
 }
 form button {
     width: 12%;
-    background: rgb(130, 224, 255);
+    background: #BE5F7C;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -51,14 +54,18 @@ form button {
     padding: 0;
 }
 #messages li, #users li, #you li {
-    padding: 5px 10px;
+    padding: 10px 10px;
     border-radius: 2px;
 }
 #users li, #you li {
-    font-size: 12px;
+    font-size: 15px;
 }
-#messages li:nth-child(odd), #users li:nth-child(even) {
-    background: #eee;
+#messages li:nth-child(odd) {
+    background: #e498af;
+}
+
+#users li:nth-child(even) {
+    background: #75af96;
 }
 
 .intro{
@@ -74,34 +81,47 @@ form button {
 }
 
 .messages-container{
-    background-color: #eee000;
+    background-color: #983351;
+    border: double 5px #e498af;
     width: 98%;
-    height: 200px;
+    height: 20em;
     border-radius:5px;
     margin: 3px;
 }
 
 .users-container{
-    background-color: #00b3ee;
+    background-color: #277553;
     height: 145px;
     width: 98%;
     border-radius: 5px;
-    padding: 2%;
+    padding: 3%;
     margin: 3px;
 }
 
 .you-container{
-    background-color: #cc0000;
-    height: 50px;
+    background-color: #75af96;
+    height: 60px;
     width: 98%;
     border-radius: 5px;
-    padding: 2%;
+    padding: 3%;
+    margin: 3px;
+}
+
+.bio-container{
+    background-color: #75af96;
+    height: 200px;
+    width: 98%;
+    border-radius: 5px;
+    padding: 3%;
     margin: 3px;
 }
 
 .title {
     margin: 3px;
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 45px;
+    color: #75AF96;
     font-weight: bold;
+    letter-spacing: 1.5px;
+    font-family: 'Stalemate', cursive;
 }

@@ -27,13 +27,12 @@ $('form').submit(function(){
 });
 
 socket.on('chat message', function(username, msg){
-    $('#messages').append($('<li>').text(username + ": " + msg));
+    $('#messages').append($('<li>').html("<strong>" + username + "</strong>" + ": " + msg));
     $('.scroll').scrollTop(1000000);
 });
 
 socket.on('send bio', function(bio, link){
-    $('#bio').text(bio);
-    $('#bio').append($('<li>').text(link));
+    $('#bio').html(bio + "... " + "<a href=" + link + ">Read More on Wikipedia" + "</a>");
 });
 
 
