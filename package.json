@@ -23,6 +23,8 @@
   "homepage": "https://github.com/bytheway875/history_chat.org",
   "dependencies": {
     "ejs": "^2.0.8",
+    "body-parser": "^1.13.3",
+    "method-override": "^2.3.5",
     "express": "^4.9.8",
     "socket.io": "^1.2.1",
     "underscore": "^1.7.0",
