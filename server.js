@@ -26,8 +26,8 @@ app.get('/', function (req, res) {
     //res.render('index');
 });
 
-server.listen(1137, function(){
-    console.log('Server running on port 1137');
+server.listen(process.env.PORT || 1137, function(){
+    console.log('Server running');
 });
 
 io.on('connection', function(socket){
@@ -79,4 +79,3 @@ io.on('connection', function(socket){
 //    res.end('Hello World\n');
 //}).listen(1337, '127.0.0.1');
 //console.log('Server running at http://127.0.0.1:1337/');
-
